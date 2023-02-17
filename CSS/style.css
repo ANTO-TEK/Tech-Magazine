@@ -1,0 +1,1611 @@
+
+/* STILI ELEMENTI GENERICI */
+
+/* Reset stile tramite SELETTORE UNIVERSALE */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* dice al broswer di tenere conto di border, padding,... specificati dall'utente*/
+    font-family: 'Akshar', sans-serif;
+}
+
+/* Stile tag HTML  con selettore di tipo*/
+html {
+    font-size: 10px;
+}
+
+/* Si è scelto di rendere tutte le textarea non 
+ridimensionabili dall'utente tramite selettore di tipo */
+textarea {
+    resize: none;
+}
+
+/* Stile del tag select con selettore di tipo*/
+select {
+    font: inherit;
+    padding: 10px; 
+    -webkit-appearance: none;
+    background-repeat: no-repeat; /* L'immagine non deve essere ripetuta */
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); /* Triangolino che permette di far aprire il selettore */
+    background-position: right 15px top 1em, right 10px top 1em; /* Posiziona il triangolino a destra all'interno del selettore */
+    background-size: 5px 5px, 5px 5px; /* Dimensioni del triangolino */
+    width: 98%; /* Larghezza del selettore */
+    border: solid 2px #f0f0f0; /* Stle bordo del selettore */
+}
+
+/* Imposta la larghezza dell'immagine pari alla dimensione della pagina */
+img {
+    width: 100%;
+}
+
+/* Descendant: i link all'interno del tag main hanno questo stile */
+main a {
+    padding: 15px 0;
+    display: block;
+    transition: all 0.5s;
+    text-decoration: none;
+    color: black;
+}
+
+/* Descendant: gli span all'interno del tag main hanno questo stile  */
+main span{
+    transition: padding-left 0.5s;
+}
+
+/* Pesudoclasse dinamica :hover, feedback al passaggio del puntatore */
+main a:hover span{
+    padding-left: 5px;
+}
+
+
+
+/* HOME PAGE */
+
+/* Corpo della home page, con altezza minima pari a 1000 px per la gestione corretta di header e footer */
+.bodyHome{
+    min-height: 1000px;
+}
+
+
+/*  Stile assegnato all'hr della home page. Si è scelto, per i margini, di utilizzare come unità di misura 'em', unità di misura relativa alla dimensione dei caratteri di default,
+come moltiplicatore della dimensione di default assegnata ai caretteri, in maniera tale da adattarsi a quest'ultima. */
+.bodyHome hr{
+    display: block; /* Visualizzazione dell'elemento che inizia su una nuova riga e occupa l'intera larghezza  */
+    margin-top: 0.5em; 
+    margin-bottom: 0.5em; 
+    margin-left: auto; 
+    margin-right: auto; 
+    border-style: inset; /* Stile del bordo a far sembrare l'elemento 'incorporato'*/
+    border-width: 1px;
+    border-color: #000;
+}
+
+.banner{
+    min-height: auto; /* Gestita dal browser */
+    display: grid; /*  Visualizzare l'elemento come contenitore della griglia a livello di blocco (in questo caso banner)*/
+    grid-template-columns: 1fr; /* 1 frazione del container in cui è definito*/
+    align-items: center;
+    padding: 30px 0;
+    margin-top: 8px;
+}
+
+/* Div che contiene il banner con le notizie correnti */
+ /*L’unità di misura rem si comporta come em, ma fa riferimento all’elemento alla radice del documento (html) . Rem infatti è la sigla per “root em”. Funge sempre da moltiplicatore come em.*/
+.banner-main-content {
+    padding: 0 2rem;
+    line-height: 1.7; /* Altezza di una linea */
+}
+
+/* Titolo h2 nel banner con le notizie correnti */
+.banner-main-content h2 {
+    font-size: 35px;
+    font-family: 'Akshar', sans-serif;
+}
+
+/* Punto elenco h3 nel banner con le notizie correnti */
+.banner-main-content h3 {
+    font-size: 1rem 0;
+}
+
+/* Div che contiene le ancore alle notizie correnti */
+.current-news-head {
+    background: #fff;
+    padding: 20px;
+    font-size: 12px;
+    margin: 20px 0;
+}
+
+/* Stile ancora contenuta nel div delle notizie correnti */
+.current-news-head a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Feedback del testo contenuto nel banner delle notizie 
+correnti al passaggio del puntatore */
+/* Il selettore ::before inserisce qualcosa prima del contenuto di ogni elemento selezionato */
+.current-news-head h3:hover::before {
+    content: ">> ";
+    position: absolute; /* posizionamento in modo assoluto rispetto al suo contenitore */
+    left: -12px;
+}
+
+/* Stile h3 nel banner con le notizie correnti */
+.current-news-head h3 {
+    padding: 6px;
+    cursor: pointer;
+    position: relative; /* posizionamento relativo al suo contenitore */ 
+}
+
+/* Stile span nel banner delle notizie correnti */
+.current-news-head  span{
+    display: block;
+    font-weight: 300;
+    text-transform: uppercase; /*  testo tutto in maiuscolo */
+}
+
+/* Stile card della notizia di rilievo */
+.important-news {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    height: 300px;
+}
+
+/* Stile dell'immagine nella card contenente 
+la notizia di rilievo */
+.important-news img{
+    display: block;
+}
+
+/* Div che contiene i dettagli della notizia di rilievo */
+.important-news-content{
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    line-height: 1.3;
+    color: #f3f3f3;
+}
+
+/* h2 del div che contiene i dettagli della notizia di rilievo (titolo)*/
+.important-news h2{
+    padding: 10px 0;
+    font-size: 18px;
+    text-shadow: 0 0 2px #000; 
+}
+
+/* h3 del div che contiene i dettagli della notizia di rilievo  (categoria)*/
+.important-news h3{
+    padding: 10px 0;
+    font-size: 18px;
+    text-shadow: 0 0 2px #000; 
+}
+
+/* stile del paragrafo che contiene la descrizione della notizia 
+di rilievo (descrizione) */
+.important-news p{
+    padding: 10px 0;
+    font-size: 15px;
+    text-shadow: 0 0 2px #000;
+    padding: 12px 10px;
+}
+
+/* stile dell'ancora che si trova nella notizia di rilievo */
+.important-news-content a{
+   text-decoration: none;
+   display: block;
+   background: #f3f3f3;
+   width: 95px;
+   border-radius: 2px;
+   text-align: center;
+   padding: 7px 10px;
+   font-size: 14px;
+   margin: 10px 0 10px 10px;
+   color: #000;
+
+}
+
+/* feedback dell'ancora al passaggio del puntatore */
+.important-news-content a:hover{
+    text-decoration: underline;
+}
+
+/* parte sinistra */
+.main-container-sx{
+    padding: 30px 10px;
+} 
+
+/* Stile degli h2 che sono figli diretti del div main-container-sx */
+.main-container-sx > h2 {
+    padding: 15px 0 15px 30px;
+    font-size: 25px;
+}
+
+/* Stile degli h3 che si trovano nel div main-container-sx */
+.main-container-sx  h3 {
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+/* div che contiene la notizie principale a sinistra */
+.container-top-sx {
+    padding: 15px 30px;
+}
+
+/* div in basso a sinistra che contiene le notizie principali */
+.container-bottom-sx {
+    background: #f3f3f3;
+}
+
+/* stile del paragrafo del div principale a sinistra */
+.main-container-sx  p {
+    font-size: 15px;
+    font-weight: 300;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Dimensione dell'ancora nel container di sinistra*/
+.main-container-sx  a{
+    font-size: 14px;
+}
+
+/* Stile del tag article nel paragrafo che contiene la 
+notizia principale */
+.main-container-sx article{
+    padding: 10px;
+}
+
+/* div destra che contiene le notizie principali */
+.main-container-dx {
+    padding: 30px 10px;
+}
+
+/* dimensione dell'ancora nel container di destra */
+.main-container-dx a{
+    font-size: 14px;
+}
+
+/* stile degli h2 che sono figli diretti del 
+container di destra */
+.main-container-dx > h2{
+    padding: 15px 0 15px 30px;
+    font-size: 25px;
+}
+
+/* stile dei tag article contenuti nel div delle 
+ultime notizie */
+/*La proprietà grid-template-columns specifica il numero (e le larghezze) delle colonne in un layout griglia.
+ Nel nostro caso data (1 colonna) , [titolo,corpo, readmore] (2 colonna),  foto (3 colonna) */
+.main-container-dx article{
+    word-break: break-word; /* per andare a capo */
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 15px 0;
+    border-bottom: 1px solid violet;
+}
+
+/* toglie bordo sotto all'ultima news del container dx, ovvero l'ultimo figlio */
+.main-container-dx article:last-child{
+    border-bottom: none;
+}
+
+/* immagine nel container di destra */
+.main-container-dx img{
+    width: 150px;
+    align-self: center;
+    border-radius: 4px;
+}
+
+/* h4 del container di destra */
+.main-container-dx h4{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 12px;
+    align-self: center;
+}
+
+/* stili article e h2 del container di destra */
+.main-container-dx article h2{
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+/* sile article e paragrafo nel container di destra */
+.main-container-dx article p{
+    font-size: 15px;
+    font-weight: 300;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* stile di article e dive nel container di destra */
+.main-container-dx article div{
+    margin-right: 10px;
+
+}
+
+/* gestione griglia quando la larghezza della pagina supera i 768px. In particolar modo, le immagini del sub content saranno mostrate , quando la larghezza sarà 
+>= di 768 px, 2 per ogni riga affiancate, e dunque non più una sotto l'altra*/
+@media(min-width: 768px){
+    .banner-sub-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  /*corrisponde a 1fr 1fr */
+    }
+
+    .container-bottom-sx{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Per affiancare la sezione trending news con la sezione ultime notizie, occupando ognuna di esse rispettivamente 1 fr del container (main) ad esse associato */
+@media(min-width: 992px){
+    main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
+
+/* a pagina estesa, le notizie si affiancano a quelle più importanti */
+@media(min-width: 1080px){
+    .banner{
+        grid-template-columns: 1fr 2fr; /* 2fr per il banner contenente le immagini, facendolo apparire come occupante più spazio */
+    }
+}
+
+
+
+/* STILE CATEGORIE */
+
+/* Body di ciascuna delle pagine contenenti le categorie */
+.bodyCategorie {
+    font-family: 'Akshar', sans-serif;
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    overscroll-behavior: contain; /* Impedisce il concatenamento di scorrimento (per garantirlo solo sul contenuto del body) */
+}
+
+/* Stile della card */
+.card {
+    background-color: #fff;
+    box-shadow: 0 0 2.5rem rgb(0, 0, 0, 0.25);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+/* Div della card che contiene l'immagine */
+.card-image {
+    height: 35rem;
+    overflow: hidden; /* L'overflow viene ritagliato e il resto del contenuto sarà invisibile. */
+}
+
+/* Stile dell'immagine della card */
+.card-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Con esso l'immagine viene ridimensionata per mantenere le sue proporzioni mentre riempie l'intera casella del contenuto dell'elemento card image*/
+    display: block;
+}
+
+/* Div che contiene tutto il testo della card e la
+rispettiva ancora */
+.card-content {
+    padding: 2rem;
+}
+
+/* Div che contiene la riga con tutti i dettagli */
+.blog-details, 
+.icon-text {
+    display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+    align-items: center;
+}
+
+/* Dettagli della card */
+.icon-text {
+    padding-bottom: 1px;
+   margin-right: 1rem;
+   color: rgb(80, 80, 80);
+}
+
+/* Stile icone della riga dettagli */
+.icon-text .icon {
+    color: gray;
+    margin-right: 4px;
+}
+
+/* Div che contiene l'ancora */
+.blog-cta {
+    margin-top: 2rem;
+    display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+    align-items: center;
+}
+
+/* Stile ancora */
+.catButton {
+    padding: 1.6rem 2rem;
+    display: inline-block;
+    background-color: black;
+    border-radius: 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px
+}
+
+/* Feedback dell'ancora al passaggio del puntatore */
+.catButton:hover {
+    color: violet;
+}
+
+/* Stile del paragrafo che contiene la descrizione, utilizzando general sibling per selezionare un elemento che segue un altro anche non immediatamente.
+Questo perchè, in caso di formattazione della notizia da parte dell'utente, lo stile applicato alla classe desc viene ereditato anche da tutti i tag interni. */
+.desc ~ * {
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* stesso stile sopra definito, applicato al genitore solamente nel caso in cui non ci siano tag più interni */
+.desc {
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+/*  Gestione ridimensionamento */
+@media screen and (min-width: 900px) {
+    .card{
+        display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+        height: 35rem;
+        overflow: hidden; /* gestione dell'overflow, nascondendo i limiti */
+    }
+
+    .card-image {
+        height: auto;
+        flex: 1; /* per crescere e decrescere  in proporzione alla finestra, e definizione della posizione dell'immagine (flex-grow: 1, flex-shrink: 1 e  flex-basis: 0) */
+    }
+
+    /* gestione affiancamento contenuto alla immagine */
+    /*   flex 2 = flex-grow: 2 (specifica di quanto aumenterà l'elemento rispetto al resto degli elementi flessibili) , flex-shrink: 1 (Un numero che specifica di quanto si ridurrà l'elemento rispetto al resto degli elementi flessibili) 
+    e flex-basis: 0 (lunghezza base dell'item) */
+    .card-content{
+        flex: 2; 
+        display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* Titolo della categoria */
+.bodyCategorie  h1{
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 10px;
+    color: darkgrey;
+    font-size: 20px;
+}
+
+
+/* PAGINA DI AGGUNTA DI UNA NOTIZIA */
+
+/* Body della pagina di aggiunta notizia */
+.bodyAddNews {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #cdccccb7;
+    display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+    flex-direction: column; /* modo in cui gli elementi posti nel contenitore flex vengono posizionati -> column: gli elementi flessibili vengono visualizzati verticalmente, come una colonna */
+    justify-content: center; /* allinea gli elementi del contenitore flessibile quando gli elementi non utilizzano tutto lo spazio disponibile, in questo caso al centro del contenitore*/
+    align-items: center;
+
+}
+
+/* Textarea della pagina di aggiunta della notizia */
+.bodyAddNews textarea{
+    resize: none; /* l'utente non può ridimensionare la text area */
+    margin-left: 0px;
+    width: 98%;
+}
+
+/* Contenitore del form della pagina di aggiunta della notizia */
+.containerAddNews {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    display: table-row; /* Lascia che l'elemento si comporti come un elemento <tr> */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Padding del form della pagina di aggiunta della notizia */
+.addNewsForm {
+    padding: 60px 60px;
+}
+
+/* Margine di ogni div del form */
+.form-field-AN{
+    margin-bottom: 5px;
+}
+
+/* Label di ogni div del form */
+.form-field-AN label {
+    display: block; /* Visualizzazione dell'elemento che inizia su una nuova riga e occupa l'intera larghezza  */
+    color:dimgrey;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/* Stile di input, textarea e button nel form */
+.form-field-AN input, textarea, button {
+    border: solid 2px #f0f0f0;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: block;
+    width: 98%;
+}
+
+/* Messaggio di errore in caso di input non valido */
+.form-field-AN small {
+    color: red;
+}
+
+/* Bordo del text field che diventa rosso in caso di input non corretto */
+.form-field-AN.error input {
+    border-color: red;
+}
+
+/* Stile dei bottoni della pagina di aggiunta della notizia */
+.btnAN {
+    width: 34%;
+    padding: 2%;
+    margin-bottom: 60px;
+    margin-right: 60px;
+    background: #222222;
+    color: #fff;
+    text-transform: uppercase;
+    float: left; /* La proprietà float specifica dove un elemento deve fluttuare, in questo caso a sinistra */
+    border-radius: 10px;
+    border: solid 2px #f0f0f0;
+}
+
+/* Feedback dei bottoni della pagina di aggiunta notizia 
+al passaggio del puntatore */
+.btnAN:hover {
+    color: violet;
+    cursor: pointer;
+}
+
+/* Div che contiene i bottoni */
+.buttonsAN{
+    text-align: center;
+    margin-left: 21%;
+    margin-right: 8%;
+    align-content: center;
+}
+
+
+
+/* PAGINA DELLA NOTIZIA */
+
+/* Contenitore di immagine e titolo */
+.newsContainer{
+    display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+    flex-direction: column; /* modo in cui gli elementi saranno posizionati nel contenitore news */
+    justify-content: center;
+	align-items: center;
+}
+
+/* Immagine di copoertina */
+.newsImage{
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	opacity: 40%;
+	z-index: 1; /* La proprietà z-index specifica l'ordine di stack di un elemento. Maggiore è, più  avanti sta */
+}
+
+/* Titolo posizionato sulla copertina */
+.newsTitle{
+    text-align: center;
+    align-content: center;
+    overflow: break-word; /*andata a capo */
+	position: absolute;
+	z-index: 2; /* testo in rilievo su immagine */
+	font-size: 28px;
+	color: rgb(0, 0, 0);
+    text-shadow: 0px 2px 5px  rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+/* Container del paragrafo con il testo della notizia */
+.textNewsContainer{
+    word-break: break-word; /*andata a capo */
+	border-radius: 10px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+}
+
+/* Dov che contiene l'alert che si mostra in caso di 
+invio di un commento */
+.alert {
+    padding: 20px;
+    background-color: #88df84;
+    color: rgb(17, 105, 47);
+    border-radius: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 40px;
+    width: 20%;
+}
+  
+/* Bottone che permette di chiudere l'alert */
+.closebtn {
+    margin-left: 15px;
+    color: rgb(17, 105, 47);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 30px;
+}
+/* Feedback del bottone al passaggio del puntatore */
+.closebtn:hover {
+    color: black;
+}
+
+/* Linea divisoria tra testo della notizia e sezione dei commenti */ 
+hr{
+	border-top: 2px solid  rgb(223, 117, 221);
+	border-radius: 5px;
+	margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 40px;
+}
+
+/* Titolo della sezione commenti */
+.commentsTitle{
+	font-size: 25px;
+    color: #262626;
+    margin-bottom: 15px;
+	margin-left: 80px;
+}
+
+/* Immagine del profilo dell'utente che ha commentato */
+.imgComment{
+	width: 60px;
+    height: 60px;
+    border-radius: 50%;
+	float: left; /*posizione sinistra dell'elemento fluttuante immagine del commento*/
+    margin-bottom: 15px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+}
+
+/* Div che contiene il testo del commento, la data e lo
+username */
+.commentContent{
+	margin-left: 80px;
+}
+
+/* Container dello username */
+.commentContent span{
+	display: inline-block; /* Visualizza l' elemento come contenitore di blocchi a livello di linea.  */
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+/* Div che contiene tutti i commenti */
+.comment{
+	margin-left: 80px;
+	margin-right: 80px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+    border: 1px solid #edeff2;
+    border-radius: 2px;
+    border:1px solid #ffffff;
+	word-wrap: break-word; /* andata a capo */
+}
+
+.comment p{
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+/* Data del commento */ 
+.date{
+	text-align: right;
+	font-size: 11px;
+    color: #b4b7c1;
+}
+
+/* Username contenuto nel tag span */
+.username{
+	font-size: 15px;
+    font-family: American Typewriter, serif;
+}
+
+/* Testo del commento */
+.commentText{
+	font-size: 13px;
+    line-height: 18px;
+    color: #7a8192;
+    display: block;
+    background: #f6f6f7;
+    border: 1px solid #edeff2;
+    padding: 15px 20px 20px 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+}
+
+/* Text area della sezione commenti */
+.textAreaComment{
+	font-size: 13px;
+    height: 20%;
+    line-height: 15px;
+    font-size: medium;
+    font-weight: 400;
+    color: #b4b7c1;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #edeff2;
+    border-radius: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+    margin-right: 80px;
+    width: 50%;
+}
+
+/* Bottone presente sotto la text area */
+.textAreaButton{
+	display: block; /* Inizia su una nuova riga e occupa l'intera larghezza */
+	padding: 10px 40px;
+	font-size: 12px;
+	cursor: pointer;
+	text-align: center;
+	color: white;
+	background-color: black;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	margin-bottom: 40px;
+    margin-left: 60px;
+    width: 20%;
+}
+
+/* Feedback del bottone sotto la text area al passaggio del puntatore */
+.textAreaButton:hover {
+	background-color: violet;
+}
+
+.textAreaButton:active {
+    transform: translateY(4px); /* effetto pressione del bottone, con shift verso l'asse y di 4px */
+}
+
+/* Div che contiene la text area di inserimento dei commenti ed il bottone*/
+.newComment {
+	margin-left: 20px;
+}
+
+
+
+/* STILE PLAYER AUDIO */
+
+/* Contenitore più esterno del box audio */
+.container-audio {
+    margin-top: 40px;
+    margin-left: 80px;
+    height: 10vh;
+    display: grid;  /* Visualizza un elemento come contenitore della griglia a livello di blocco */
+    place-items: left;
+    display: block;
+    float: flex;
+}
+
+/* Contenitore di immagine e controlli del player */
+.container-player {
+    background-color: #fff;
+    height: 60px;
+    width: 400px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 70px;
+    display: flex;
+    align-items: center;
+    padding-right: 1px;
+}
+
+/* Div che contiene l'immagine */
+.container-player-image {
+    position: relative; /* è posizionato rispetto alla sua posizione normale */
+    z-index: 3;
+    display: flex; /* flex container, per visualizzare gli elementi in maniera flessibile -> su riga ad esempio come orientamento */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+/* Div interno che contiene l'immagine */
+.cover img {
+    width: 40px;
+    height: 40px;
+    margin-right:20px;
+    background: transparent;
+}
+
+/* Div che contiene le informazioni di riproduzione 
+e l'username */
+.container-player-info-controls {
+    position: relative; /* è posizionato rispetto alla sua posizione normale */
+    margin-left: 5px;
+    flex: 1; /* per crescere e decrescere  in proporzione alla finestra, e definizione della posizione dell'immagine (flex-grow: 1, flex-shrink: 1 e  flex-basis: 0) */
+}
+
+/* Div interno che contiene le informazioni di riproduzione
+e l'username */
+.container-info {
+    margin-left: 15px;
+    width: 100%;
+    font-size: 15px;
+}
+
+/* Div che contiene l'username */
+.container-info-author {
+    color: #3b3b3b;
+    font-size: 0.8em;
+}
+
+/* Div che contiene il tasto di riproduzione/pausa */
+.container-controls {
+    justify-content: center;
+    float:left; /*posizione sinistra dell'elemento fluttuante immagine del commento*/
+}
+
+/* Stile del bottone che permette di attivare il player */
+.controls {
+    color: black;
+    align-items: center;
+}
+
+/* Feedback del bottone al passaggio del cursore */
+.controls:hover{
+    cursor: pointer;
+    color: violet;
+}
+
+/* Bottone in pausa */
+.pause {
+    font-size: 3em;
+}
+
+
+
+/* PAGINE NOTIZIE UTENTE, COMMENTI UTENTE, 
+NOTIZIE DA APPROVARE E COMMENTI DA APPROVARE */
+/* La seguente sezione riporta gli stili utilizzati per le suddette pagine
+che sono state raggruppate in quanto presentano una struttura simile */
+
+/* UNIONE delle classi che costituiscono i body delle pagine di interesse */
+.bodyCategorie, .notizieUtenteBody{
+    min-height: 1000px;
+}
+
+/* Selezione di h1 discendente della classe notizieUtenteBody*/
+.notizieUtenteBody h1{
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 10px;
+    color: darkgrey;
+}
+
+/* UNIONE di selettori */
+.div-notizieUtente, .div-commentiUtente{
+    height: auto;
+    display: flex; /* Imposta il contenitore flessibile */
+    justify-content: center;
+    align-items: center;
+    color: #4f546c;
+    font-size: 13px;
+}
+
+/* Div che contiene il bottone che serve ad aggiungere 
+la notizia */
+.div-addNewsBtn {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom:40px;
+} 
+
+/* Bottone che serve ad aggiungere una notizia */
+.addNewsBtn{
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+    width: 100%;
+    background: #222222;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* PSEUDO-CLASSE :hover -> Feedback del bottone al passaggio del puntatore */
+.addNewsBtn:hover {
+    color: violet;
+    cursor: pointer;
+}
+
+/* Div che contiene l'ancora alla notizia */
+.div-notizia {
+    width: 100px; 
+    overflow: auto;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+/* 
+Stile dell'ancora prima e dopo che venga visitata 
+dall'utente 
+
+PSEUDO-CLASSE :link -> link che l'utente non ha ancora visitato
+PSEUDO-CLASSE :visited -> link che l'utente ha visitato
+*/
+.div-notizia a:link, .div-notizia a:visited{
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+    width: 100%;
+    background: #222222;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 4px;
+}
+
+/* 
+PSEUDO-CLASSE :hover -> Feedback dell'ancora al passaggio del puntatore 
+PSEUDO-CLASSE :active -> link che sono stati attivati (inizia al click del mouse)
+*/
+.div-notizia a:hover, .div-notizia a:active{
+    background-color: violet;
+    cursor: pointer;
+}
+
+/* Div che contiene della tabella */
+.tabellaUtente{
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 80px;
+}
+
+/* Tabella utente */
+.tabellaUtente table {
+    border-collapse: collapse; /* Collassa i bordi della tabella in uno solo*/
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+}
+
+/* Celle dell'header e del body della tabella */
+.tabellaUtente th, td {
+    width: 1000px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* stile dello stato nell'apposita cella della tabella */
+.status {
+    border-radius: 10px;
+    background-color: red;
+    padding: 0.2rem 1rem;
+    text-align: center;
+}
+
+/* Stato contenuto nella cella quando il commento o 
+la notizia sono in attesa di approvazione */
+.status-pending {
+    background-color: #fff0c2;
+    color: #a68b00;
+}
+
+/* Stato contenuto nella cella quando il commento o 
+la notizia sono stati approvati */
+.status-approved {
+    background-color: #c8e6c9;
+    color: #388e3c
+}
+
+/* Stato contenuto nella cella quando il commento o 
+la notizia sono stati disapprovati */
+.status-unapproved {
+    background-color: #ffcdd2;
+    color: #c62828;
+}
+
+/* Stile dei bottoni di annulla e conferma nella pagina di 
+aggiornamento della notizia */
+.btn {
+    width: 40%;
+    padding: 1%;
+    margin: 60px;
+    background: #37393b;
+    border-bottom: 2px solid #696e73;
+    color: #fff;
+    text-transform: uppercase;
+    float: left; /* Mette l'elemento sul lato sinistro del container */
+}
+
+/* PSEUDO-CLASSE :hover -> Feedback al passaggio del mouse sui bottoni di rimozione 
+e conferma della notizia o del commento */
+.btn:hover {
+    background: #b744da;
+    cursor: pointer;
+}
+
+/* UNIONE DI SELETTORI -> Bottone che permette la modifica p la cancellazione di una notizia 
+o di un commento */
+.pencilButton, .deleteButton{
+    border-radius: 50%;
+    background-color: white;
+    border: #f0f0f0;
+    color: #f0f0f0;
+    float: left;
+}
+
+/* Stile del bottone che consente di visualizzare il commento */
+.seeCommentButton{
+    background-color: white;
+    border: #f0f0f0;
+    color: #f0f0f0;
+    float: left;
+}
+
+/* SELETTORE PER TIPO E CLASSE: Colore del testo nel paragrafo sotto l'icona che permette 
+di visualizzare il commento */
+.seeCommentButton p{
+    color: #000000;
+    text-align: center;
+}
+
+/* Classe che identifica l'icona importata */
+.material-icons{
+    color: #222222;
+}
+
+/* PSEUDO-CLASSE :hover -> Feedback al passaggio del mouse sull'icona */
+.material-icons:hover{
+    color:violet;
+    cursor: pointer;
+}
+
+/* Margine destro del form */
+.commentiUtenteform {
+    margin-right: 60px;
+}
+
+/* SELETTORE PER TIPO E CLASSE: Label nel form commenti utente */
+.form-field-CU label {
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+    color:dimgrey;
+    margin-bottom: 5px;
+    margin-left:60px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/* UNIONE DI SELETTORI: Input e textarea del form commenti utente */
+.form-field-CU input, textarea {
+    border: solid 2px #f0f0f0;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 14px;
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+    width: 94%;
+    margin-left:60px;
+    margin-right:60px;
+}
+
+/* Bottone del form commenti utente */
+.form-button-CU {
+    text-align: center;
+    align-content: center;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+/* Bottone di annulla e conferma del form */
+.btn-popup {
+    width: 30%;
+    padding: 1%;
+    background: #37393b;
+    border-bottom: 2px solid #696e73;
+    color: #fff;
+    text-transform: uppercase;
+    float: left; /* si posiziona a sinistra del contenitore */
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* PSEUDO-CLASSE :hover -> Feedback del bottone della finestra popup 
+al passaggio del puntatore */
+.btn-popup:hover {
+    background-color: violet;
+    cursor: pointer;
+}
+
+/* Immagine del profilo dell'utente nella finestra popup */
+.profilePic{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Fondo finestra popup */ 
+.popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed; /* Fissa la posizione al centro dello schermo */
+    top: 0;
+    display: flex; /* Imposta il contenitore flessibile */
+    justify-content: center;
+    align-items: center;
+}
+
+/* SELETTORE PER TIPO E CLASSE: h2 con titolo della finestra popup */
+.popup h2{
+    margin-left: 60px;
+    margin-top: 40px;
+}
+
+/* SELETTORE PER ID: della label che si trova nella finestra popup */
+#lbl{
+    font-size: 15px;
+}
+
+/* Finestra popup */
+.popup-content {
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    height: auto;
+}
+
+/* SELETTORE PER ID: textarea commenti da approvare */
+#taCDA{
+    width:86%;
+}
+
+/* STILE SIGNUP E LOGIN */
+
+/* Body del signup */
+.signUpBody {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    display: flex; /* Imposta il contenitore flessibile */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* (Viewport Height): gestisce il dimensionamento di un elemento in relazione all’altezza della finestra del browser. */
+    margin: 0;
+}
+
+/* Contenitore signup */
+.signUpContainer {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+/* Form signup */
+.signUpForm {
+    padding: 10px 20px;
+}
+
+/* H1 del form di sign up */
+.signUpForm h1 {
+    font-size: 1.5em; /* 1.5 la font-size dell'elemento*/
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+/* UNIONE DI SELETTORI: H5 e H6 del form di recupero password in alto */
+.signUpForm h5, h6{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* DESCENDANT: ancora nell'h6 della classe */
+.signUpForm h6 a {
+    color: gray;
+    text-decoration: none;
+}
+
+/* H6 del form di sign up in alto */
+.signUpForm h6 a:hover {
+   color:violet; 
+}
+
+/* Stile dei campi del form */
+.form-field-SU {
+    margin-bottom: 5px;
+}
+
+/* Stile delle etichette dei campi del form */
+.form-field-SU label {
+    display: flex; /* Imposta il contenitore flessibile */
+    color:dimgrey;
+    margin-bottom: 5px;
+}
+
+/* Stile degli input field dei campi del form */
+.form-field-SU input {
+    border: solid 2px #f0f0f0;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+    width: 100%;
+}
+
+/* Bordo del text field che diventa rosso in caso di input non corretto */
+.form-field-SU.error input {
+    border-color: red;
+}
+
+/* Bordo del text field che diventa verde in caso di input corretto */
+.form-field-SU.success input {
+    border-color: green;
+}
+
+/* Stile dei messaggi di errore che compaiono sotto gli input field in caso di errore */
+.form-field-SU small {
+    color: rgb(140, 8, 8);
+}
+
+/* Bottone di sign up */
+.btnSU {
+    width: 100%;
+    padding: 3%;
+    background: #37393b;
+    border-bottom: 2px solid #696e73;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* PSEUDO_CLASSE :hover -> Feedback del bottone al passaggio del puntatore */
+.btnSU:hover {
+    background: #b744da;
+    cursor: pointer;
+}
+
+/* Stile del div che contiene i radio buttons e le 
+rispettive etichette */
+.radioContainer{
+    float: left;
+}
+
+/* Stile dell'H6 alla fine del form*/
+.textBottom{
+    padding-top: 60px;
+}
+
+/* Posizionamento dei radio buttons */
+.radioButton{
+    margin-top: 5px;
+    float: left;
+    margin-top: 5px;
+}
+
+
+/* FOOTER */
+
+footer{
+    display: flex; /* Imposta il contenitore flessibile */
+    flex-flow: row wrap;
+    padding: 50px;
+    color: #fff;
+    background-color: #222222;
+}
+  
+/* lo applico a tutti gli elementi del footer */
+  
+/* CHILD -> applica la proprietà flex a tutti i figli diretti 
+del footer */
+.footer > *{
+    flex: 1 100%; /* Two values: flex-grow | flex-basis */
+}
+  
+/* stile colonna di sinistra del footer */
+.footer-sx {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+    flex: 1 0px; /* Two values: flex-grow | flex-basis */
+    text-align: center;
+    padding-right: 100px;
+}
+  
+/* stile del logo */
+.footer-sx img{
+    width: 40%;
+}
+  
+/* stile unordered list nel footer */
+.footer ul{
+    list-style: none; /* Nascone i punti elenco */
+    padding-left: 0;
+}
+  
+/* stile dei punti elenco del footer*/
+.footer li{
+    line-height: 2em; /* altezza della linea -> 2 volte la font size dell'elemento*/
+}
+  
+/* stile delle ancore del footer */
+.footer a{
+    text-decoration: none; /* toglie la sttolineatura dalle ancore */
+    color: #999;
+}
+  
+/* feedback delle ancore al passaggio del puntatore */
+.footer a:hover {
+    color: violet;
+}
+
+/* stile della parte destra del footer */
+.footer-dx{
+    display: flex; /* Imposta il contenitore flessibile */
+    flex: 2 0px; /* Two values: flex-grow | flex-basis */
+
+}
+  
+/* applico a tutti i figli del footer dx */
+.footer-dx > *{
+    flex: 1;
+    margin-right: 1.25em; /* altezza della linea -> 1.25 volte la font size dell'elemento*/
+}
+
+/* stile della parte inferiore del footer */
+.footer-bottom {
+    text-align: center;
+    color: #999;
+    padding-top: 20px;
+}
+
+/* stile del paragrafo nella parte sinistra del footer */
+.footer-sx p{
+    padding-top: 10px;
+    color: #999;
+}
+
+/*  colore degli elementi di testo del footer */
+.list-contatto li, .list-categorie li {
+    color: #999;
+}
+
+
+
+/* HEADER */
+
+/* stile tag nav dell'header */
+nav{
+    background: #222222;
+    padding: 20px 40px 40px 70px;
+    border: 1px solid black;
+    border-right: none;
+    border-left: none;
+}
+
+/* stile unordered list nel tag nav dell'header */
+nav ul{
+    display: flex; /* Imposta il contenitore flessibile */
+    list-style: none; /* Nasconde i punti elenco */
+    flex-wrap: wrap; /* Si posiziona su più linee */
+    align-items: center;
+    justify-content: center; /*Posiziona gli elementi al centro*/
+}
+
+/* stile logo */
+nav ul li.logo {
+    flex: 1; /* Two values: flex-grow */
+    font-size: 45px;
+    font-weight: 700;
+}
+
+/* stile ancore */
+nav ul li.logo a {
+    text-decoration: none; /* toglie la sottolineatura dalle ancore */
+    color: white;
+}
+
+/* feedback del logo
+passaggio del puntatore*/
+nav ul li.logo a:hover {
+    color: violet;
+}
+
+/* stile items */
+nav ul div.items {
+    display: inline-flex; /* Si comporta come un elemento inline e posiziona il suo contenuto in accordo al flexbox*/
+    margin-right: 10px;
+}
+
+/* stile ancore items */
+nav ul div.items a{
+    text-decoration: none; /* toglie la sottolineatura dalle ancore */
+    font-size: 18px;
+    padding: 0 12px;
+    color: white;
+}
+
+/* feedcak ancore al passaggio del puntatore */
+nav ul div.items a:hover {
+    color: violet;
+}
+
+/* stile icona di ricerca */
+nav ul .search-icon{
+    height: 40px;
+    width: 240px;
+    display: flex; /* Imposta il contenitore flessibile */
+    background: #f2f2f2;
+    border-radius: 5px;
+}
+
+/* stile input */
+nav ul .search-icon input {
+    height: 100%;
+    width: 200px;
+    border: none; /* Toglie il bordo */
+    outline: none; /* Toglie il focus dal bordo */
+    padding: 0 10px;
+    color: #000;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+}
+
+/* stile icona */
+nav ul .search-icon .icon {
+    height: 100%;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* feedback dell'icona al passaggio del puntatore */
+nav ul .search-icon .icon:hover {
+    background: none;
+    cursor: default;
+}
+
+/* stile span dell'icona */
+nav ul .search-icon .icon span {
+    color: #222222;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* stile immagine del profilo dell'header */
+.imgProfile{
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+	float: left;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	object-fit: cover; /* Posiziona l'immagine prendendo lo spazio disponibile */
+}
+
+/* flessibilità */
+@media screen and (max-width: 800px) {
+    nav{
+        padding: 10px 40px 10px 0px;
+    }
+
+    nav ul li.logo{
+        display: none;
+    }
+}
+
+/* stile ancore della barra sotto l'header */
+.topnav a{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #edf0f1;
+    text-decoration: none; /* Toglie la sottolineatura dalle ancore */
+}
+
+/* stile unordered list */
+.topnav ul {
+    list-style: none; /* Nasconde i punti elenco */
+    background: black;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* stile punti elenco barra sotto l'header */
+.topnav li {
+    display: inline-block; /* Non va a capo dopo l'elemento */
+}
+
+/* stile ancore barra sotto l'header*/
+.topnav a {
+    text-decoration: none; /* Toglie la sottolineatura dalle ancore */
+    color: #fff;
+    width: 200px;
+    display: block; /* occupa tutto lo spazio disponibile, non permette di aggiungere elementi sulla stessa riga */
+    padding: 15px 10px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold ; /* Grassetto */
+}
+
+/* feedback della barra al passaggio del puntatore */
+.topnav a:hover {
+    background: violet;
+}
+
+/* stile ancore della barra di navigazione */
+.topnav ul li a {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    font-size: 9px;
+    color: #edf0f1;
+    text-decoration: azure;
+}
+
+
+/* Div per la gestione delle pagina relativa all'autorizzazione negata */
+
+.divError {
+    height: 1000px;
+    text-align: center;
+    margin-top: 400px;
+}
+
